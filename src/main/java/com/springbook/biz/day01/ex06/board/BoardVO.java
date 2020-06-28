@@ -1,4 +1,4 @@
-package com.springbook.biz.day01.board;
+package com.springbook.biz.day01.ex06.board;
 
 import java.sql.Date;
 

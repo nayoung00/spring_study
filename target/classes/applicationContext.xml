@@ -8,6 +8,6 @@
 		http://www.springframework.org/schema/context 
 		http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 		
-       <bean id="tv" class="com.springbook.biz.day01.ex05.LgTV"></bean>
-       <bean id="apple" class="com.springbook.biz.day01.ex05.AppleSpeaker"></bean>
+      <context:component-scan base-package="com.springbook.biz.day01.ex06.board">
+      </context:component-scan>
 </beans>   

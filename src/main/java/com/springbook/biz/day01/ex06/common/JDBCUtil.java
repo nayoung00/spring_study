@@ -1,6 +1,7 @@
-package com.springbook.biz.day01.common;
+package com.springbook.biz.day01.ex06.common;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
@@ -61,4 +62,16 @@ public class JDBCUtil {
       }
     }
   }
+
+  public static Connection getConnection() {
+    try {
+      Class.forName("com.mysql.jdbc.Driver");
+      return DriverManager.getConnection(
+          "jdbc:mysql://localhost:8080/study?autoReconnect=true&useSSL=true", "study", "1111");
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    return null;
+  }
+
 }
