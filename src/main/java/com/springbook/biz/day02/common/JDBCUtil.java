@@ -1,4 +1,4 @@
-package com.springbook.biz.day01.ex07.common;
+package com.springbook.biz.day02.common;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -6,6 +6,16 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class JDBCUtil {
+  public static Connection getConnection() {
+    try {
+      Class.forName("org.h2.Driver");
+      return DriverManager.getConnection("jdbc:h2:~/test", "sa", "");
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    return null;
+  }
+
   public static void close(PreparedStatement stmt, Connection conn) {
     if (stmt != null) {
       try {
@@ -63,14 +73,6 @@ public class JDBCUtil {
     }
   }
 
-  public static Connection getConnection() {
-    try {
-      Class.forName("org.h2.Driver");
-      return DriverManager.getConnection("jdbc:h2:~/test", "sa", "");
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
-    return null;
-  }
+
 
 }
