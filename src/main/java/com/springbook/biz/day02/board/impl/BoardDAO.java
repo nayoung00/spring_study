@@ -5,13 +5,16 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import javax.sql.DataSource;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Repository;
 import com.springbook.biz.day02.board.BoardVO;
 import com.springbook.biz.day02.common.JDBCUtil;
 
 // DAO(Data Access Object)
 @Repository("boardDAO")
-public class BoardDAO {
+public class BoardDAO extends JdbcDaoSupport {
   // JDBC 관련 변수
   private Connection conn = null;
   private PreparedStatement stmt = null;
@@ -24,6 +27,11 @@ public class BoardDAO {
   private final String BOARD_DELETE = "delete board where seq=?";
   private final String BOARD_GET = "selet *from board where seq=?";
   private final String BOARD_LIST = "seletc *from board order by seq desc";
+
+  @Autowired
+  public void setSuperDataSource(DataSource dataSource) {
+    super.setDataSource(dataSource);
+  }
 
   // CRUD 기능의 메소드 구현
   // 글 등록
