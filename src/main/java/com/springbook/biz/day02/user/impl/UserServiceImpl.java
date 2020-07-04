@@ -1,7 +1,7 @@
 package com.springbook.biz.day02.user.impl;
 
-import com.springbook.biz.day01.ex07.user.UserService;
-import com.springbook.biz.day01.ex07.user.UserVO;
+import com.springbook.biz.day02.user.UserService;
+import com.springbook.biz.day02.user.UserVO;
 
 public class UserServiceImpl implements UserService {
 

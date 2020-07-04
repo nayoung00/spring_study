@@ -3,8 +3,8 @@ package com.springbook.biz.day02.user.impl;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import com.springbook.biz.day01.ex07.common.JDBCUtil;
-import com.springbook.biz.day01.ex07.user.UserVO;
+import com.springbook.biz.day02.common.JDBCUtil;
+import com.springbook.biz.day02.user.UserVO;
 
 // DAO(Data Access Object)
 public class UserDAO {
