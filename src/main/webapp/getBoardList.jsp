@@ -18,7 +18,7 @@
                       "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR" charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR charset=UTF-8">
 <title>글 목록</title>
 </head>
 <body>
