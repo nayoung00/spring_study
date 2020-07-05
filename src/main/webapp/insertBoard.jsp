@@ -12,7 +12,7 @@
 <h1>글 등록</h1>
 <a href="logout_proc.jsp">Log-out</a>
 <hr>
-<form action="insertBoard_proc.jps" method="post">
+<form action="insertBoard.do" method="post">
 <table border="1" cellpadiing="0" cellspacing="0">
     <tr>
     <td bgcolor="orange" width="70">제목</td>
