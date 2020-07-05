@@ -5,8 +5,15 @@
     pageEncoding="UTF-8"%>
     
 <%
+    // 1. 사용자 입력 정보 추출(검색 가능은 나중에 구현)
+    // 2. DB 연동 처리
+    BoardVO vo = new BoardVO();
+    BoardDAO boardDAO = new BoardDAO();
+    
     // 세션에 저장된 글 목록을 꺼낸다.
     List<BoardVO> boardList = (List) session.getAttribute("boardList");
+    
+    // 3. 응답 화면 구성
 %>    
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
@@ -50,7 +57,7 @@
 <% for(BoardVO board : boardList) { %>
 <tr>
     <td><%= board.getSeq() %></td>
-    <td align="left"><a href="getBoard.jsp?seq=<%= board.getSeq() %>">
+    <td align="left"><a href="getBoard.do?seq=<%= board.getSeq() %>">
                     <%= board.getTitle() %></a></td>
     <td><%= board.getWriter() %></td>
     <td><%= board.getRegDate() %></td>
