@@ -1,10 +1,11 @@
-package com.springbook.view.controller;
+package com.springbook.view.board;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import com.springbook.biz.day01.ex06.board.BoardVO;
 import com.springbook.biz.day01.ex06.board.impl.BoardDAO;
+import com.springbook.view.controller.Controller;
 
 public class GetBoardController implements Controller {
 

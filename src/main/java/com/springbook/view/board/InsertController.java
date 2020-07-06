@@ -1,31 +1,32 @@
-package com.springbook.view.controller;
+package com.springbook.view.board;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.springbook.biz.day02.board.BoardVO;
 import com.springbook.biz.day02.board.impl.BoardDAO;
+import com.springbook.view.controller.Controller;
 
-public class UpdateBoardController implements Controller {
+public class InsertController implements Controller {
 
   @Override
   public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
 
-    System.out.println("글 수정 처리");
+    System.out.println("글 등록 처리");
 
     // 1. 사용자 입력 정보 추출
-    // request.setCharacterEncoding("EUC-KR");
+    // request.setCharacterEncoding("UTF-8");
     String title = request.getParameter("title");
+    String writer = request.getParameter("writer");
     String content = request.getParameter("content");
-    String seq = request.getParameter("seq");
 
     // 2. DB 연동 처리
     BoardVO vo = new BoardVO();
     vo.setTitle(title);
+    vo.setWriter(writer);
     vo.setContent(content);
-    vo.setSeq(Integer.parseInt(seq));
 
     BoardDAO boardDAO = new BoardDAO();
-    BoardVO board = boardDAO.getBoard(vo);
+    boardDAO.insertBoard(vo);
 
     // 3. 화면 네비게이션
     return "getBoardList.do";

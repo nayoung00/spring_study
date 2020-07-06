@@ -1,4 +1,4 @@
-package com.springbook.view.controller;
+package com.springbook.view.board;
 
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import com.springbook.biz.day02.board.BoardVO;
 import com.springbook.biz.day02.board.impl.BoardDAO;
+import com.springbook.view.controller.Controller;
 
 public class GetBoardListController implements Controller {
 
