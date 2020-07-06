@@ -12,6 +12,7 @@ public class HandlerMapping {
     mappings = new HashMap<String, Controller>();
     mappings.put("/login.do", new LoginController());
     mappings.put("/getBoardList.do", new GetBoardListController());
+    mappings.put("/getBoard.do", new GetBoardController());
   }
 
   public Controller getController(String path) {
