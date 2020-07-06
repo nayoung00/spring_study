@@ -13,6 +13,7 @@ public class HandlerMapping {
     mappings.put("/login.do", new LoginController());
     mappings.put("/getBoardList.do", new GetBoardListController());
     mappings.put("/getBoard.do", new GetBoardController());
+    mappings.put("/insertBoard.do", new InsertController());
     mappings.put("/updateBoard.do", new UpdateBoardController());
   }
 
