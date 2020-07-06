@@ -15,6 +15,7 @@ public class HandlerMapping {
     mappings.put("/getBoard.do", new GetBoardController());
     mappings.put("/insertBoard.do", new InsertController());
     mappings.put("/updateBoard.do", new UpdateBoardController());
+    mappings.put("/deleteBoard.do", new DeleteBoardController());
   }
 
   public Controller getController(String path) {
