@@ -2,14 +2,15 @@ package com.springbook.view.user;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.Controller;
 import com.springbook.biz.day02.user.UserVO;
 import com.springbook.biz.day02.user.impl.UserDAO;
-import com.springbook.view.controller.Controller;
 
 public class LoginController implements Controller {
 
   @Override
-  public String handleRequest(HttpServletRequest request, HttpServletResponse response) {
+  public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) {
 
     System.out.println("로그인 처리");
 
@@ -26,11 +27,13 @@ public class LoginController implements Controller {
     UserVO user = userDAO.getUser(vo);
 
     // 3. 화면 네비게이션
+    ModelAndView mav = new ModelAndView();
     if (user != null) {
-      return "getBoardList.do";
+      mav.setViewName("getBoardList.do");
     } else {
-      return "login";
+      mav.setViewName("login.jsp");
     }
+    return mav;
   }
 
 }
