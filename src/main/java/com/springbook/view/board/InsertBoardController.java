@@ -12,6 +12,6 @@ public class InsertBoardController {
   public String insertBoard(BoardVO vo, BoardDAO boardDAO) {
     System.out.println("글 등록 처리");
     boardDAO.insertBoard(vo);
-    return "getBoardList.do";
+    return "redirect:getBoardList.do";
   }
 }
