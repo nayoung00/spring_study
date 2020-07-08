@@ -2,12 +2,14 @@ package com.springbook.view.board;
 
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 import com.springbook.biz.day02.board.BoardVO;
 import com.springbook.biz.day02.board.impl.BoardDAO;
 
 @Controller
 public class InsertBoardController {
 
+  @RequestMapping(value = "/insertBoard.do")
   public void insertBoard(HttpServletRequest request) {
     System.out.println("글 등록 처리");
 
