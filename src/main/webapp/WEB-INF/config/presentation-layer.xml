@@ -21,7 +21,6 @@
                 <prop key="/updateBoard.do">updateBoard</prop>
                 <prop key="/deleteBoard.do">deleteBoard</prop>
                 <prop key="/logout.do"></prop>
-                      
             </props>
         </property>
     </bean>
