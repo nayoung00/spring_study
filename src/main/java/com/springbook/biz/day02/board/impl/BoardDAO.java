@@ -28,6 +28,11 @@ public class BoardDAO extends JdbcDaoSupport {
   private final String BOARD_GET = "selet *from board where seq=?";
   private final String BOARD_LIST = "seletc *from board order by seq desc";
 
+  private final String BOARD_LIST_T =
+      "select *from board where title like '%'||?||'%' order by seq desc";
+  private final String BOARD_LIST_C =
+      "select *from board where content like '%'||?||%' order by seq desc";
+
   @Autowired
   public void setSuperDataSource(DataSource dataSource) {
     super.setDataSource(dataSource);
@@ -110,12 +115,17 @@ public class BoardDAO extends JdbcDaoSupport {
     return board;
   }
 
-  // 글 상세 조회
+  // 글 목록 조회
   public List<BoardVO> getBoardList(BoardVO vo) {
     System.out.println("===> JDBC로 getBoardList() 기능 처리");
     List<BoardVO> boardList = new ArrayList<BoardVO>();
     try {
       conn = JDBCUtil.getConnection();
+      if (vo.getSearchCondition().equals("TITLE")) {
+        stmt = conn.prepareStatement(BOARD_LIST_T);
+      } else if (vo.getSearchCondition().equals("CONTENT")) {
+        stmt = conn.prepareStatement(BOARD_LIST_C);
+      }
       stmt = conn.prepareStatement(BOARD_LIST);
       rs = stmt.executeQuery();
       while (rs.next()) {
