@@ -19,6 +19,18 @@
         <!-- maxUploadSize를 지정하지 않으면 기본으로 "-1"이 설정되는데
              이는 파일 크기가 무제한이라는 의마다. -->
     </bean>
+    
+    <!-- 예외 처리 설정 -->
+    <bean id="exceptionResolver" class="org.springframework.web.servlet.handler.SimpleMappingExceptionResovler">
+        <property name="exceptionMappings">
+            <props>
+                <prop key="java.lang.ArithmeticException">
+                    commom/arithmeticError.jsp
+                </prop>
+            </props>
+        </property>
+        <property name="defaultErrorView" value="common/error.jsp"></property>
+    </bean>
 
     <!-- HandlerMapping 등록 -->
     <bean class ="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
