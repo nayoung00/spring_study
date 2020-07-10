@@ -13,6 +13,8 @@
     <!-- 파일 업로드 설정 -->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="maxUploadSize" value="100000"/>
+        <!-- maxUploadSize를 지정하지 않으면 기본으로 "-1"이 설정되는데
+             이는 파일 크기가 무제한이라는 의마다. -->
     </bean>
 
     <!-- HandlerMapping 등록 -->

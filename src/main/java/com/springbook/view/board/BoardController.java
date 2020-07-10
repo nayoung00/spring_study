@@ -1,5 +1,6 @@
 package com.springbook.view.board;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.multipart.MultipartFile;
 import com.springbook.biz.day02.board.BoardService;
 import com.springbook.biz.day02.board.BoardVO;
 
@@ -20,7 +22,13 @@ public class BoardController {
 
   // 글 등록
   @RequestMapping("/insertBoard.do")
-  public String insertBoard(BoardVO vo) {
+  public String insertBoard(BoardVO vo) throws IOException {
+    // 파일 업로드 처리
+    MultipartFile uploadFile = vo.getUploadFile();
+    if (!uploadFile.isEmpty()) {
+      String fileName = uploadFile.getOriginalFilename();
+      uploadFile.transferTo(new File("D:/" + fileName));
+    }
     boardService.insertBoard(vo);
     return "getBoardList.do";
   }
