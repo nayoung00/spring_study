@@ -82,7 +82,7 @@
     
     <!-- LocaleResolver 등록 -->
     <bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver"></bean>
-</beans>
+
 
 <!-- 
     AcceptHeaderLocaleResolver : 브라우저에서 전송된 HTTP 요청 헤더에서 Accept_Language에 설정된 Local로 메시지를 적용한다.
@@ -90,3 +90,11 @@
     SessionLocaleResolver : HttpSession에 저장된 Locale 정보를 추출하여 메시지를 적용한다.
     FixedLocaleResolver : 웹 요청과 무관하게 특정 Locale로 고정한다.
  -->
+ 
+ <!-- LocaleChangeInterceptor 등록 -->
+ <mvc:interceptors>
+    <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+        <property name="paramName" value="lnag"/>
+     </bean>   
+ </mvc:interceptors>
+ </beans>
