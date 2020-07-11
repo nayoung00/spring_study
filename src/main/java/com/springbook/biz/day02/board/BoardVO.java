@@ -2,6 +2,7 @@ package com.springbook.biz.day02.board;
 
 import java.sql.Date;
 import org.springframework.web.multipart.MultipartFile;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 // VO(Value Object)
 public class BoardVO {
@@ -17,6 +18,7 @@ public class BoardVO {
 
 
 
+  @JsonIgnore // 자바 객체를 JSON으로 변환할 때, 특정 변수를 변환에서 제외시킴
   public MultipartFile getUploadFile() {
     return uploadFile;
   }
@@ -26,7 +28,7 @@ public class BoardVO {
     this.uploadFile = uploadFile;
   }
 
-
+  @JsonIgnore
   public String getSearchCondition() {
     return searchCondition;
   }
@@ -37,7 +39,7 @@ public class BoardVO {
   }
 
 
-
+  @JsonIgnore
   public String getSearchKeyword() {
     return searchKeyword;
   }
