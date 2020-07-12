@@ -1,19 +1,24 @@
 package com.springbook.biz.day02.board;
 
-import java.sql.Date;
+import java.util.Date;
 import org.springframework.web.multipart.MultipartFile;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 // VO(Value Object)
+@XmlAccessorType(XmlAccessType.FIELD)
 public class BoardVO {
+  @XmlAttribute
   private int seq;
   private String title;
   private String writer;
   private String content;
   private Date regDate;
   private int cnt;
+  @XmlTransient // XML 변한에서 제외
   private String searchCondition;
+  @XmlTransient
   private String searchKeyword;
+  @XmlTransient
   private MultipartFile uploadFile;
 
 
