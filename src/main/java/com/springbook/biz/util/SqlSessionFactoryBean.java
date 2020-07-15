@@ -1,5 +1,5 @@
-package com.springbook.biz.util;
 // SqlSessionFactory 객체를 생성하는 유틸리티 클래스
+package com.springbook.biz.util;
 
 import java.io.Reader;
 import org.apache.ibatis.io.Resources;
