@@ -17,9 +17,9 @@
         delete board where seq=#{seq}
     </delete>
     
-    <seletct id="getBoard" resultType="board">
+    <select id="getBoard" resultType="board">
         select *from board where seq=#{seq}
-    </seletct>
+    </select>
     
     <select id="getBoardList" resultType="board">
         select *from board

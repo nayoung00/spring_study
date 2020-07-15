@@ -16,7 +16,7 @@ public class BoardDAO {
   }
 
   public void insertBoard(BoardVO vo) {
-    mybatis.insert("BoardDOA.insertBoard", vo);
+    mybatis.insert("BoardDAO.insertBoard", vo);
     mybatis.commit();
   }
 
