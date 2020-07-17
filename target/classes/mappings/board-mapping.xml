@@ -36,11 +36,21 @@
         ]]>
     </select>
     
-    <select id="getBoardList" resultType="board">
+    <select id="getBoardList_T" resultType="boardResult">
     <![CDATA[
         select *
         from board
         where title like '%'||#{searchKeyword}||'%'
+        order by seq desc
+        ]]> 
+    </select>
+    
+    
+     <select id="getBoardList_C" resultType="boardResult">
+    <![CDATA[
+        select *
+        from board
+        where content like '%'||#{searchKeyword}||'%'
         order by seq desc
         ]]> 
     </select>
