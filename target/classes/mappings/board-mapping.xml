@@ -36,22 +36,16 @@
         ]]>
     </select>
     
-    <select id="getBoardList_T" resultType="boardResult">
-    <![CDATA[
-        select *
-        from board
-        where title like '%'||#{searchKeyword}||'%'
-        order by seq desc
-        ]]> 
-    </select>
-    
-    
-     <select id="getBoardList_C" resultType="boardResult">
-    <![CDATA[
-        select *
-        from board
-        where content like '%'||#{searchKeyword}||'%'
-        order by seq desc
-        ]]> 
+    <select id="getBoardList" resultMap="boardResult">
+        SELECT *
+        FROM BOARD
+        WHERE 1 = 1
+        <if test="searchCondition == 'TITLE'">
+            AND TITLE LIKE '%'||#{searchKeyword}||'%'
+        </if>
+        <if test="searchCondition == 'CONTENT'">
+            AND CONTENT LIKE '%'||#{searchKeyword}||'%'
+        </if>
+        ORDER BY SEQ DESC
     </select>
 </mapper>
