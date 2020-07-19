@@ -32,6 +32,17 @@
             <property name="configLocation" value="classpath:sql-map-config.xml"/>
         </bean>
         
+        
+        <!-- 스프링 JPA 연동 설정 -->
+        <bean id="jpaVendorAdapter"
+              class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"></bean>
+        
+        <bean id="entityManagerFactory"
+              class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBena">
+              <property name="dataSource" ref="dataSource"></property>
+              <property name="jpaVendorAdapter" ref="jpaVendorAdapter"></property>
+              </bean>
+        
         <!-- DataSource 설정 -->
         <context:property-placeholder location="classpath:config/database.properties"/>
         
