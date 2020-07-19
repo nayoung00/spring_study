@@ -76,8 +76,8 @@
         
         
         <!-- Transaction 설정 -->
-        <bean id ="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="dataSource"></property>
+        <bean id ="txManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"></property>
         </bean>
         
         <tx:advice id="txAdvice" transaction-manager="txManager">
@@ -89,7 +89,7 @@
         
         <aop:config>
             <aop:pointcut id="txPointcut"
-                            expression="execution(*com.springbook.biz..*(..))"/>
+                            expression="execution(*com.springbook.biz..*Impl.*(..))"/>
             <aop:advisor pointcut-ref="txPointcut" advice-ref="txAdvice"/>                
         </aop:config>
 </beans>
